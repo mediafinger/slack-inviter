@@ -1,0 +1,20 @@
+.invite
+  %p= "Please give me access to the <b>#{slack_channel_name} #slack</b> group."
+  %p <i>(And don't use my email for other purposes.)</i>
+
+
+  %form(action="/invite" method="post")
+    .field
+      Email:
+      %input(type="email" name="email")
+      %input(type="submit")
+
+
+- if defined? success
+  .success
+    = success
+
+
+- if defined? failure
+  .failure
+    = failure
