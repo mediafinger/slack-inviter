@@ -1,0 +1,36 @@
+body, input, textarea, code, tt, pre {
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+div, form, .success, .failure {
+  padding: 0.3em;
+}
+
+.field, .success, .failure {
+  margin: 0.5em;
+}
+
+input[type=email] {
+  border-radius: 0.4em;
+  padding: 0.4em;
+  width: 16em;
+}
+
+
+input[type=submit] {
+  background: #ccf;
+  border-radius: 0.4em;
+  border: 2px solid silver;
+  cursor: pointer;
+  margin: 0.4em;
+  padding: 0.4em 0.6em;
+}
+
+.failure {
+  background-color: #fcc;
+}
+
+.success {
+  background-color: #ccf;
+}
