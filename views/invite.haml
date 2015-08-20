@@ -5,8 +5,12 @@
 
   %form(action="/invite" method="post")
     .field
-      Email:
+      .label Name:
+      %input(type="text" name="first_name")
+    .field
+      .label Email:
       %input(type="email" name="email")
+    .field
       %input(type="submit")
 
 
