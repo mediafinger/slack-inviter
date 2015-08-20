@@ -13,5 +13,6 @@ If you want to use this app for your own Slack group, you just have to change th
 
 ## Testing
 
+Just run `rake test` to run all the tests.
 
 ## Deployment
