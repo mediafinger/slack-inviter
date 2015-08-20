@@ -17,12 +17,12 @@ get '/invite' do
 end
 
 post '/invite' do
-  @inviter = Inviter.new(url: Config::SLACK_CHANNEL_URL, token: Config::SLACK_CHANNEL_TOKEN)
-  result = @inviter.invite(params['email'])
+  @inviter ||= Inviter.new(url: Config::SLACK_CHANNEL_URL, token: Config::SLACK_CHANNEL_TOKEN)
+  result = @inviter.invite(email: params['email'], first_name: params['first_name'])
 
-  if result
-    haml :invite, locals: { success: "Done for <b>#{ params['email'] }</b>!", slack_channel_name: Config::SLACK_CHANNEL_NAME }
+  if result[:success]
+    haml :invite, locals: { success: result[:message], slack_channel_name: Config::SLACK_CHANNEL_NAME }
   else
-    haml :invite, locals: { failure: "That did not work, please try again!", slack_channel_name: Config::SLACK_CHANNEL_NAME }
+    haml :invite, locals: { failure: result[:message], slack_channel_name: Config::SLACK_CHANNEL_NAME }
   end
 end
