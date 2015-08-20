@@ -3,6 +3,11 @@ body, input, textarea, code, tt, pre {
   font-size: 1em;
 }
 
+body {
+  min-width: 25em;
+  max-width: 25em;
+}
+
 div, form, .success, .failure {
   padding: 0.3em;
 }
@@ -11,12 +16,20 @@ div, form, .success, .failure {
   margin: 0.5em;
 }
 
-input[type=email] {
+.field {
+  text-align: right;
+}
+
+
+.label {
+  display: inline;
+}
+
+input[type=email], input[type=text] {
   border-radius: 0.4em;
   padding: 0.4em;
   width: 16em;
 }
-
 
 input[type=submit] {
   background: #ccf;
