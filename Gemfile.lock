@@ -5,11 +5,14 @@ GEM
       tilt
     json (1.8.3)
     mime-types (2.6.1)
+    minitest (5.8.0)
     netrc (0.10.3)
     puma (2.13.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rest-client (1.7.3)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
@@ -25,7 +28,9 @@ PLATFORMS
 DEPENDENCIES
   haml (~> 4.0)
   json (~> 1.8)
+  minitest
   puma (~> 2.13)
+  rack-test
   rest-client (~> 1.7.0)
   sinatra (~> 1.4)
 

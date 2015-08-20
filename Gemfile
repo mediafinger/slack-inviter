@@ -9,3 +9,8 @@ gem 'json',         '~> 1.8'
 # version 1.8 has much heavier dependencies:
 # http-cookie -> domain_name -> unf -> C-extension...
 gem 'rest-client',  '~> 1.7.0'
+
+group :test do
+  gem 'minitest'
+  gem 'rack-test'
+end
