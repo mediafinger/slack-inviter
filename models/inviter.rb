@@ -4,11 +4,11 @@ class Inviter
     @token = token
   end
 
-  def invite(email:, first_name:)
+  def invite(email, first_name, options = {})
     return { success: false, message: "We need your email address!" } if email.nil? || email.empty?
     return { success: false, message: "Please tell us your name." }   if first_name.nil? || first_name.empty?
 
-    result = post_request(email, first_name)
+    result = post_request(email, first_name, options)
 
     if result[:success]
       { success: true, message: "Done for <b>#{email}</b>!" }
@@ -19,7 +19,7 @@ class Inviter
 
   private
 
-  def post_request(email, first_name)
+  def post_request(email, first_name, options)
     api_result = RestClient.post(full_url, post_params(email, first_name))
     hash = JSON.parse(api_result)
 
