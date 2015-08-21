@@ -19,6 +19,6 @@ class GetIndexTest < Minitest::Test
   def test_get_invite_mentions_the_channel_name
     get '/invite'
 
-    assert_includes last_response.body, Config::SLACK_CHANNEL_NAME
+    assert_includes last_response.body, Config::SLACK_TEAM_NAME
   end
 end

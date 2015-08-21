@@ -14,7 +14,7 @@ get '/' do
 end
 
 get '/invite' do
-  haml :invite, locals: { slack_channel_name: Config::SLACK_CHANNEL_NAME }
+  haml :invite, locals: team_params
 end
 
 post '/invite' do
@@ -22,9 +22,9 @@ post '/invite' do
   result = @inviter.invite(params['email'], params['first_name'], test_result: params['test_result'])
 
   if result[:success]
-    haml :invite, locals: { success: result[:message], slack_channel_name: Config::SLACK_CHANNEL_NAME }
+    haml :invite, locals: { success: result[:message] }.merge!(team_params)
   else
-    haml :invite, locals: { failure: result[:message], slack_channel_name: Config::SLACK_CHANNEL_NAME }
+    haml :invite, locals: { failure: result[:message] }.merge!(team_params)
   end
 end
 
@@ -33,5 +33,9 @@ def inviter
   klass = Inviter
   klass = DummyInviter if ENV['RACK_ENV'] == 'test' # || 'development'
 
-  klass.new(url: Config::SLACK_CHANNEL_URL, token: Config::SLACK_CHANNEL_TOKEN)
+  klass.new(url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN)
+end
+
+def team_params
+  { team_name: Config::SLACK_TEAM_NAME, team_url: Config::SLACK_TEAM_URL }
 end

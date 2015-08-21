@@ -11,7 +11,7 @@ class Inviter
     result = post_request(email, first_name, options)
 
     if result[:success]
-      { success: true, message: "Done for <b>#{email}</b>!" }
+      { success: true, message: "Done for <b>#{email}</b> - check your emails now!" }
     else
       { success: false, message: "That did not work, please try again!</br>#{result[:error]}" }
     end

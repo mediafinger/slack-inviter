@@ -24,7 +24,7 @@ class PostInviteTest < Minitest::Test
   def test_post_invite_mentions_the_channel_name
     post '/invite', @params
 
-    assert_includes last_response.body, Config::SLACK_CHANNEL_NAME
+    assert_includes last_response.body, Config::SLACK_TEAM_NAME
   end
 
   def test_post_invite_includes_failure_message
@@ -38,13 +38,13 @@ class PostInviteTest < Minitest::Test
     post '/invite', @params.merge(test_result: true)
 
     assert_includes last_response.body, "<div class='success'>"
-    assert_includes last_response.body, "Done for <b>#{@email}</b>!"
+    assert_includes last_response.body, "Done for <b>#{@email}</b> - check your emails now!"
   end
 
   def test_post_invite_initializes_inviter
     post '/invite', @params.merge(test_result: true)
 
-    parameters = [url: Config::SLACK_CHANNEL_URL, token: Config::SLACK_CHANNEL_TOKEN]
+    parameters = [url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN]
 
     obj = DummyInviter.new
     assert_send([obj, :invite, *parameters])
@@ -53,7 +53,7 @@ class PostInviteTest < Minitest::Test
   def test_post_invite_initializes_inviter
     post '/invite', @params.merge(test_result: true)
 
-    parameters = [url: Config::SLACK_CHANNEL_URL, token: Config::SLACK_CHANNEL_TOKEN]
+    parameters = [url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN]
 
     assert_send([DummyInviter, :new, *parameters])
   end

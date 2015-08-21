@@ -1,5 +1,10 @@
 .invite
-  %p= "Please give me access to the <b>#{slack_channel_name} #slack</b> group."
+  %p
+    Please give me access to the
+    %a{ href: "#{team_url}", title: "#{team_name}", target: "_blank" }
+      %b= team_name
+    = "#Slack team!"
+
   %p <i>(And don't use my email for other purposes.)</i>
 
 
