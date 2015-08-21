@@ -1,8 +1,14 @@
 # Slack Invitation app
 
-When you administer a free Slack group, you might know this issue: copying and pasting emails to invite new members is quite cumbersome. It would be so much easier, if they could just fill in their email into a form, hit the submit button and receive an invite from Slack automatically... BINGO! That's exactly what this little Ruby / Sinatra app is doing :-)
+When you administer a free Slack team, you might know this issue: copying and pasting emails to invite new members is quite cumbersome. It would be so much easier, if they could just fill in their email into a form, hit the submit button and receive an invite from Slack automatically... BINGO! That's exactly what this little Ruby / Sinatra app is doing :-)
 
 _Let people invite themselves to your Slack group with this very simple Ruby / Sinatra app_
+
+## Example running on heroku
+
+https://rubywebdev.herokuapp.com/
+
+_(Actually this app is live and used, please do only enter your email address when you really want to join the group of Ruby developers in Barcelona ;-))_
 
 ## Setup
 
@@ -20,7 +26,7 @@ You can get the Slack API key for your group at https://api.slack.com/
 - [ ] run the server `bundle exec ruby app.rb`
 - [ ] open the website at **http://localhost:4567/**
 
-If you make it look nicer, than pretty-please send me a pull request :-)
+_If you make it look nicer, than pretty-please send me a pull request :-)_
 
 ## Testing
 
@@ -28,6 +34,16 @@ Just run `rake test` to run all the tests.
 
 ## Deployment
 
-TODO
+slack-inviter is a simple Ruby app, using a Gemfile which references Sinatra and all other needed gems. No gem has any system dependencies. The app does not need a database. So it should be fairly easy to deploy to any server that is set up for Ruby apps.
+
+I only deployed to heroku. If you want to do so too:
+- just follow the steps on https://toolbelt.heroku.com/ and afterwards:
+- run `git push heroku master`
+- run `heroku config:set SLACK_CHANNEL_RUBYWEBDEV_API_TOKEN=your-slack-team-api-token`
+- run `heroku open`
+
+_Et voila - you should now have a running app!_
+
+## One last thing
 
 If you use the app, please star it on GitHub and/or let me know you are doing it. Don't worry, it is for free, no strings attached.
