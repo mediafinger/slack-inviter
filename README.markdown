@@ -39,7 +39,7 @@ slack-inviter is a simple Ruby app, using a Gemfile which references Sinatra and
 I only deployed to heroku. If you want to do so too:
 - just follow the steps on https://toolbelt.heroku.com/ and afterwards:
 - run `git push heroku master`
-- run `heroku config:set SLACK_CHANNEL_RUBYWEBDEV_API_TOKEN=your-slack-team-api-token`
+- run `heroku config:set SLACK_TEAM_RUBYWEBDEV_API_TOKEN=your-slack-team-api-token` (you might want to rename the ENV variable to match you slack team name)
 - run `heroku open`
 
 _Et voila - you should now have a running app!_
