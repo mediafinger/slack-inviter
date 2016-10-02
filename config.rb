@@ -1,6 +1,8 @@
+require 'dotenv'
+Dotenv.load
+
 class Config
-  SLACK_TEAM_NAME = "Ruby Web Devs"
-  SLACK_TEAM_URL = "https://rubywebdev.slack.com"
-  # generate your API token at https://api.slack.com/
-  SLACK_TEAM_TOKEN = ENV["SLACK_TEAM_RUBYWEBDEV_API_TOKEN"]
+  SLACK_TEAM_NAME  = ENV["SLACK_TEAM_NAME"]
+  SLACK_TEAM_URL   = ENV["SLACK_TEAM_URL"]
+  SLACK_TEAM_TOKEN = ENV["SLACK_TEAM_TOKEN"]
 end
