@@ -2,14 +2,26 @@
 %html
   %head
     %title Invite yourself to a #slack channel
-    %link(rel="stylesheet" type="text/css" href="app.css")
+    %link(rel="stylesheet" type="text/css" href="css/bootstrap.min.css")
+    %link(rel="stylesheet" type="text/css" href="css/jumbotron-narrow.css")
+    %link(rel="stylesheet" type="text/css" href="css/app.css")
     %meta(name="author" content="Andreas Finger @mediafinger")
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
   %body
+    .container
+      %header.header
+        %h3.text-center
+          Welcome to
+          %span.slack
+            #{Config::SLACK_TEAM_NAME}
 
-    = yield
+      .jumbotron
+        = yield
 
-    .foot
-      Get the source code of this app:
-      %br
-      %a{ href: "https://github.com/mediafinger/slack-inviter", title: "github.com/mediafinger", target: "_blank" }
-        https://github.com/mediafinger/slack-inviter
+      %footer.footer.small
+        Get the source code of this app:
+        %br
+        %a{ href: "https://github.com/mediafinger/slack-inviter", title: "github.com/mediafinger", target: "_blank" }
+          https://github.com/mediafinger/slack-inviter

@@ -15,10 +15,10 @@ class PostInviteTest < Minitest::Test
   def test_post_invite_includes_the_form
     post '/invite', @params
 
-    assert_includes last_response.body, "<form action='/invite' method='post'>"
-    assert_includes last_response.body, "<input name='first_name' type='text'>"
-    assert_includes last_response.body, "<input name='email' type='email'>"
-    assert_includes last_response.body, "<input type='submit'>"
+    assert_includes last_response.body, "<form action='/invite' class='form-inline' method='post'>"
+    assert_includes last_response.body, "<input class='form-control' id='first_name' name='first_name' type='text'>"
+    assert_includes last_response.body, "<input class='form-control' id='email' name='email' type='email'>"
+    assert_includes last_response.body, "<input class='btn btn-lg btn-success btn-default' type='submit'>"
   end
 
   def test_post_invite_mentions_the_channel_name
@@ -30,14 +30,14 @@ class PostInviteTest < Minitest::Test
   def test_post_invite_includes_failure_message
     post '/invite', @params
 
-    assert_includes last_response.body, "<div class='failure'>"
+    assert_includes last_response.body, "<div class='alert alert-danger'>"
     assert_includes last_response.body, "That did not work, please try again!</br>some_reason"
   end
 
   def test_post_invite_includes_success_message
     post '/invite', @params.merge(test_result: true)
 
-    assert_includes last_response.body, "<div class='success'>"
+    assert_includes last_response.body, "<div class='alert alert-success'>"
     assert_includes last_response.body, "Done for <b>#{@email}</b> - check your emails now!"
   end
 

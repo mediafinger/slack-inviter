@@ -10,10 +10,10 @@ class GetIndexTest < Minitest::Test
   def test_get_invite_includes_the_form
     get '/invite'
 
-    assert_includes last_response.body, "<form action='/invite' method='post'>"
-    assert_includes last_response.body, "<input name='first_name' type='text'>"
-    assert_includes last_response.body, "<input name='email' type='email'>"
-    assert_includes last_response.body, "<input type='submit'>"
+    assert_includes last_response.body, "<form action='/invite' class='form-inline' method='post'>"
+    assert_includes last_response.body, "<input class='form-control' id='first_name' name='first_name' type='text'>"
+    assert_includes last_response.body, "<input class='form-control' id='email' name='email' type='email'>"
+    assert_includes last_response.body, "<input class='btn btn-lg btn-success btn-default' type='submit'>"
   end
 
   def test_get_invite_mentions_the_channel_name
