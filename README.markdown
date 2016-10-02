@@ -22,7 +22,7 @@ You can get the Slack API key for your group at https://api.slack.com/
 - [ ] run `bundle install`
 - [ ] no database needed :-)
 - [ ] either ensure that in `app.rb` the `DummyInviter` is instantiated - to not send API calls through the real `Inviter` class
-- [ ] or update the information in `config.rb` - obviously the API key should be set as an ENV variable
+- [ ] or config your team variables on .env file (copy it from .env.example)
 - [ ] run the server `bundle exec ruby app.rb`
 - [ ] open the website at **http://localhost:4567/**
 

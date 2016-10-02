@@ -6,25 +6,32 @@
       %b= team_name
     = "#Slack team!"
 
-  %p <i>(And don't use my email for other purposes.)</i>
+  %p
+    %small
+      %i
+        (And don't use my email for other purposes.)
 
 
-  %form(action="/invite" method="post")
-    .field
-      .label Name:
-      %input(type="text" name="first_name")
-    .field
-      .label Email:
-      %input(type="email" name="email")
-    .field
-      %input(type="submit")
+  %form.form-inline(action="/invite" method="post")
+    .form-group
+      .field
+        %label(for="first_name")
+          Name
+        %input.form-control(type="text" name="first_name" id="first_name")
+      .field
+        %label(for="email")
+          Email
+        %input.form-control(type="email" name="email" id="email")
+    .form-group
+      .field
+        %input.btn.btn-lg.btn-success.btn-default(type="submit")
 
 
-- if defined? success
-  .success
-    = success
-
-
-- if defined? failure
-  .failure
-    = failure
+.container-fluid
+  .row#hideMe
+    - if defined? success
+      .alert.alert-success
+        = success
+    - if defined? failure
+      .alert.alert-danger
+        = failure

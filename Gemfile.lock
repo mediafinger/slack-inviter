@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.1.0)
     haml (4.0.7)
       tilt
     json (1.8.3)
@@ -26,6 +27,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   haml (~> 4.0)
   json (~> 1.8)
   minitest
@@ -35,4 +37,4 @@ DEPENDENCIES
   sinatra (~> 1.4)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
