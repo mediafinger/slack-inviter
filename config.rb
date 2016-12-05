@@ -1,6 +1,6 @@
 class Config
-  SLACK_TEAM_NAME = "Ruby Web Devs"
-  SLACK_TEAM_URL = "https://rubywebdev.slack.com"
+  SLACK_TEAM_NAME = "TechLife Columbus"
+  SLACK_TEAM_URL = "https://techlife-columbus.slack.com"
   # generate your API token at https://api.slack.com/
-  SLACK_TEAM_TOKEN = ENV["SLACK_TEAM_RUBYWEBDEV_API_TOKEN"]
+  SLACK_TEAM_TOKEN = ENV["SLACK_KEY"]
 end
