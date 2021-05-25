@@ -9,7 +9,6 @@ GEM
     ffi (1.15.1)
     haml (4.0.7)
       tilt
-    json (2.5.1)
     minitest (5.14.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
@@ -39,7 +38,6 @@ PLATFORMS
 DEPENDENCIES
   chimera_http_client (~> 1.4)
   haml (~> 4.0)
-  json (~> 2.0)
   minitest
   puma (~> 5.0)
   rack-test (~> 1.0)
