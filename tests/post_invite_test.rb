@@ -4,7 +4,7 @@ require_relative "./test_helper"
 
 class PostInviteTest < Minitest::Test
   def setup
-    @email  = "andy@finger.com"
+    @email = "andy@finger.com"
     @first_name = "Andy"
     @params = { email: @email, first_name: @first_name }
   end
@@ -58,6 +58,6 @@ class PostInviteTest < Minitest::Test
 
     parameters = { url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN }
 
-    assert_send([DummyInviter, :new, **parameters])
+    assert_send([DummyInviter, :new, **parameters]) # rubocop:disable Style/HashAsLastArrayItem
   end
 end
