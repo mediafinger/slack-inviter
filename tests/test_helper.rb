@@ -1,11 +1,13 @@
-ENV['RACK_ENV'] = 'test'
+# frozen_string_literal: true
+
+ENV["RACK_ENV"] = "test"
 
 require "minitest/autorun"
-require 'rack/test'
+require "rack/test"
 
-require_relative "../app.rb"
+require_relative "../app"
 
-include Rack::Test::Methods
+include Rack::Test::Methods # rubocop:disable Style/MixinUsage
 
 def app
   Sinatra::Application

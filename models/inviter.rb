@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Inviter
   def initialize(url:, token:)
     @url = url
@@ -19,7 +21,7 @@ class Inviter
 
   private
 
-  def post_request(email, first_name, options)
+  def post_request(email, first_name, _options)
     api_result = RestClient.post(full_url, post_params(email, first_name))
     hash = JSON.parse(api_result)
 
@@ -37,7 +39,7 @@ class Inviter
       email: email,
       first_name: first_name,
       token: @token,
-      set_active: true
+      set_active: true,
     }
   end
 end
