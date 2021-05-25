@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "sinatra"
-require "haml"
 require "chimera_http_client"
 
 require_relative "config"
@@ -11,11 +10,11 @@ require_relative "models/dummy_inviter" # for tests or development
 configure { set :server, :puma }
 
 get "/" do
-  haml :index
+  erb :index
 end
 
 get "/invite" do
-  haml :invite, locals: team_params
+  erb :invite, locals: team_params
 end
 
 post "/invite" do
@@ -23,9 +22,9 @@ post "/invite" do
   result = @inviter.invite(params["email"], params["first_name"], test_result: params["test_result"])
 
   if result[:success]
-    haml :invite, locals: { success: result[:message] }.merge!(team_params)
+    erb :invite, locals: { success: result[:message] }.merge!(team_params)
   else
-    haml :invite, locals: { failure: result[:message] }.merge!(team_params)
+    erb :invite, locals: { failure: result[:message] }.merge!(team_params)
   end
 end
 

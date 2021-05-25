@@ -1,0 +1,41 @@
+<div class="invite">
+  <p>
+    Please give me access to the
+    <br/>
+    <a href="<%= team_url %>" target="_blank" title="<%= team_name %>">
+      <b>
+        <%= team_name %>
+      </b>
+    </a>
+    <%= "#Slack team!" %>
+  </p>
+
+  <p><i>(And don't use my email for other purposes.)</i></p>
+
+  <form action="/invite" method="post">
+    <div class="field">
+      <div class="label">Name:</div>
+      <input name="first_name" type="text">
+    </div>
+    <div class="field">
+      <div class="label">Email:</div>
+      <input name="email" type="email">
+    </div>
+    <div class="field">
+      <input type="submit">
+    </div>
+  </form>
+
+</div>
+
+<% if defined? success %>
+  <div class="success">
+    <%= success %>
+  </div>
+<% end %>
+
+<% if defined? failure %>
+  <div class="failure">
+    <%= failure %>
+  </div>
+<% end %>
