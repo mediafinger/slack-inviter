@@ -2,7 +2,6 @@
 
 require "sinatra"
 require "haml"
-require "json"
 require "chimera_http_client"
 
 require_relative "config"
