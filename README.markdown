@@ -18,7 +18,7 @@ You can get the Slack API key for your group at https://api.slack.com/
 ## Development
 
 - [ ] Fork and clone the github repository or just run `git clone git@github.com:mediafinger/slack-inviter.git`
-- [ ] Check that you have a compatible Ruby version installed. At the moment the `.ruby-version` file sets it to `2.7.3`
+- [ ] Check that you have a compatible Ruby version installed. At the moment the `.ruby-version` file sets it to `3.0.1`
 - [ ] run `bundle install`
 - [x] no database needed :-)
 - [ ] ensure that in `app.rb` the `DummyInviter` is instantiated - to not send API calls through the real `Inviter` class (for test and development)
