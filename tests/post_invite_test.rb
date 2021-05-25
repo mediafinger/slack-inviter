@@ -5,7 +5,8 @@ require_relative "./test_helper"
 class PostInviteTest < Minitest::Test
   def setup
     @email  = "andy@finger.com"
-    @params = { email: @email, first_name: "Andy" }
+    @first_name = "Andy"
+    @params = { email: @email, first_name: @first_name }
   end
 
   def test_post_invite_is_success
@@ -46,10 +47,10 @@ class PostInviteTest < Minitest::Test
   def test_post_invite_initializes_inviter_with_new_dummy
     post "/invite", @params.merge(test_result: true)
 
-    parameters = [url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN]
+    parameters = { url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN }
 
-    obj = DummyInviter.new
-    assert_send([obj, :invite, *parameters])
+    obj = DummyInviter.new(**parameters)
+    assert_send([obj, :invite, *@params.values])
   end
 
   def test_post_invite_initializes_inviter
@@ -57,6 +58,6 @@ class PostInviteTest < Minitest::Test
 
     parameters = { url: Config::SLACK_TEAM_URL, token: Config::SLACK_TEAM_TOKEN }
 
-    assert_send([DummyInviter, :new, *parameters])
+    assert_send([DummyInviter, :new, **parameters])
   end
 end
