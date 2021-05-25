@@ -18,11 +18,11 @@ You can get the Slack API key for your group at https://api.slack.com/
 ## Development
 
 - [ ] Fork and clone the github repository or just run `git clone git@github.com:mediafinger/slack-inviter.git`
-- [ ] Check that you have a compatible Ruby version installed. At the moment the `.ruby-version` file sets it to `2.2.3`
+- [ ] Check that you have a compatible Ruby version installed. At the moment the `.ruby-version` file sets it to `2.7.3`
 - [ ] run `bundle install`
-- [ ] no database needed :-)
-- [ ] either ensure that in `app.rb` the `DummyInviter` is instantiated - to not send API calls through the real `Inviter` class
-- [ ] or update the information in `config.rb` - obviously the API key should be set as an ENV variable
+- [x] no database needed :-)
+- [ ] ensure that in `app.rb` the `DummyInviter` is instantiated - to not send API calls through the real `Inviter` class (for test and development)
+- [ ] update the information in `config.rb` - obviously the API token should be set as an ENV variable
 - [ ] run the server `bundle exec ruby app.rb`
 - [ ] open the website at **http://localhost:4567/**
 
@@ -34,12 +34,12 @@ Just run `rake test` to run all the tests.
 
 ## Deployment
 
-slack-inviter is a simple Ruby app, using a Gemfile which references Sinatra and all other needed gems. No gem has any system dependencies. The app does not need a database. So it should be fairly easy to deploy to any server that is set up for Ruby apps.
+slack-inviter is a simple Ruby app, using a Gemfile which references Sinatra and all other needed gems. The app does not need a database. So it should be fairly easy to deploy to any server that is set up for Ruby apps.
 
 I only deployed to heroku. If you want to do so too:
 - just follow the steps on https://toolbelt.heroku.com/ and afterwards:
 - run `git push heroku master`
-- run `heroku config:set SLACK_TEAM_RUBYWEBDEV_API_TOKEN=your-slack-team-api-token` (you might want to rename the ENV variable to match you slack team name)
+- run `heroku config:set SLACK_TEAM_TOKEN=your-slack-team-api-token`
 - run `heroku open`
 
 _Et voila - you should now have a running app!_
