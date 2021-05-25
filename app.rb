@@ -3,7 +3,7 @@
 require "sinatra"
 require "haml"
 require "json"
-require "rest-client"
+require "chimera_http_client"
 
 require_relative "config"
 require_relative "models/inviter"
