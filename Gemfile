@@ -7,7 +7,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read("./.ruby-version").chop
 
 gem "chimera_http_client",  "~> 1.4"
-gem "puma",                 "~> 5.0"
+gem "puma",                 "~> 5.5"
 gem "rake",                 "> 13.0"
 gem "sinatra",              "~> 2.0"
 
