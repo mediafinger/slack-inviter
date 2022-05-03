@@ -9,7 +9,7 @@ ruby File.read("./.ruby-version").chop
 gem "chimera_http_client",  "~> 1.4"
 gem "puma",                 "~> 5.0"
 gem "rake",                 "> 13.0"
-gem "sinatra",              "~> 2.0"
+gem "sinatra",              "~> 2.2"
 
 group :test do
   gem "minitest"
